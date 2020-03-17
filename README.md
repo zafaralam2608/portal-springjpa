@@ -1,2 +1,2 @@
 # portal-springboot
-Portal application configured with springboot
+Portal application configured with springjpa
