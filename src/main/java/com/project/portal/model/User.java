@@ -9,18 +9,6 @@ import lombok.AllArgsConstructor ;
 @AllArgsConstructor 
 public class User {
 
-	private String id;
-
-	private String username;
-
-	private String password;
-
-	private String firstName;
-
-	private String lastName;
-
-	private String email;
-
-	private String createdDate;
+	private String id, username, password, firstName, lastName, email, createdDate;
 	
 }
