@@ -8,10 +8,11 @@ public interface UserService {
 
 	List<User> findAllUsers();
 	
-	User findById(String id);
+	User findById(Long id);
 	
 	String createUser(User user);
 
-	String deleteById(String id);
+	String deleteById(Long id);
 
+	String createUsers(List<User> users);
 }
