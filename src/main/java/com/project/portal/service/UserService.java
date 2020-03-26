@@ -15,4 +15,6 @@ public interface UserService {
 	String deleteById(Long id);
 
 	String createUsers(List<User> users);
+
+	String deleteAllUsers();
 }
