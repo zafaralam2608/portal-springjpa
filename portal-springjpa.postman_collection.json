@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "efc0e3ad-65c0-4e1d-ba1c-39605aa3e757",
+		"_postman_id": "6c0c3e03-0a01-4c1a-b5be-29994d16bdf7",
 		"name": "portal-springjpa",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -19,6 +19,32 @@
 					"port": "8080",
 					"path": [
 						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "count",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "id",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/user/count",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"count"
 					]
 				}
 			},

@@ -15,6 +15,10 @@ public class DefaultUserService implements UserService {
 	@Autowired
 	UserRepository userRepository;
 
+	public long count() {
+		return userRepository.count();
+	}
+
 	public List<User> findAllUsers() {
 		return userRepository.findAll();
 	}

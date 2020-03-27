@@ -26,6 +26,11 @@ public class UserController{
 	@Autowired
 	private ModelMapper modelMapper;
 
+	@GetMapping("/count")
+	public long count() {
+		return userService.count();
+	}
+
 	@GetMapping("/all")
 	public List<User> getUsers() {
 		return userService.findAllUsers();
@@ -38,7 +43,8 @@ public class UserController{
 	}
 
 	@PostMapping("/create")
-	public String createUser(@RequestBody User user) {
+	public String createUser(@RequestBody UserDto userDto) {
+		User user = convertDtoToDao(userDto);
 		return userService.createUser(user);
 	}
 
@@ -57,11 +63,9 @@ public class UserController{
 		return userService.deleteAllUsers();
 	}
 
-
 	protected UserDto convertDaoToDto(User dao) {
 		return modelMapper.map(dao, UserDto.class);
 	}
-
 
 	protected User convertDtoToDao(UserDto dto) {
 		return modelMapper.map(dto, User.class);

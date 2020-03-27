@@ -6,6 +6,8 @@ import com.project.portal.model.User;
 
 public interface UserService {
 
+	long count();
+
 	List<User> findAllUsers();
 	
 	User findById(Long id);
