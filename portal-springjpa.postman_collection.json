@@ -1,10 +1,55 @@
 {
 	"info": {
-		"_postman_id": "efc0e3ad-65c0-4e1d-ba1c-39605aa3e757",
+		"_postman_id": "6c0c3e03-0a01-4c1a-b5be-29994d16bdf7",
 		"name": "portal-springjpa",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "count",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "id",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/user/count",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"count"
+					]
+				}
+			},
+			"response": []
+		},
 		{
 			"name": "get user",
 			"request": {
@@ -65,7 +110,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"id\" : \"4\",\n\t\"username\" : \"Hal Jordon\",\n\t\"password\" : \"Green Lantern\",\n\t\"firstName\" : \"Hal\",\n\t\"lastName\" : \"Jordon\",\n\t\"email\" : \"hal.jordon@jla.com\",\n\t\"createdDate\" : \"16 Jul 1940\"\n}",
+					"raw": "{\n\t\"username\": \"Bruce Wayne\",\n    \"password\": \"Batman\",\n    \"firstName\": \"Bruce\",\n    \"lastName\": \"Wayne\",\n    \"email\": \"bruce.wayne@jla.com\",\n    \"createdDate\": \"30 Mar 1939\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -88,19 +133,29 @@
 			"response": []
 		},
 		{
-			"name": "index",
+			"name": "create users",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"username\": \"Clark Kent\",\r\n        \"password\": \"Superman\",\r\n        \"firstName\": \"Clark\",\r\n        \"lastName\": \"Kent\",\r\n        \"email\": \"clark.kent@jla.com\",\r\n        \"createdDate\": \"18 Apr 1938\"\r\n    },\r\n    {\r\n        \"username\": \"Diana Prince\",\r\n        \"password\": \"Wonder Woman\",\r\n        \"firstName\": \"Diana\",\r\n        \"lastName\": \"Prince\",\r\n        \"email\": \"diana.prince@jla.com\",\r\n        \"createdDate\": \"25 Oct 1940\"\r\n    },\r\n    {\r\n    \t\"username\" : \"Hal Jordon\",\r\n\t\t\"password\" : \"Green Lantern\",\r\n\t\t\"firstName\" : \"Hal\",\r\n\t\t\"lastName\" : \"Jordon\",\r\n\t\t\"email\" : \"hal.jordon@jla.com\",\r\n\t\t\"createdDate\" : \"16 Jul 1940\"\r\n\t\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8080/",
+					"raw": "http://localhost:8080/user/createMultiple",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						""
+						"user",
+						"createMultiple"
 					]
 				}
 			},
@@ -127,21 +182,12 @@
 			"response": []
 		},
 		{
-			"name": "create users",
+			"name": "delete users",
 			"request": {
-				"method": "POST",
+				"method": "DELETE",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"id\": \"1\",\r\n        \"username\": \"Bruce Wayne\",\r\n        \"password\": \"Batman\",\r\n        \"firstName\": \"Bruce\",\r\n        \"lastName\": \"Wayne\",\r\n        \"email\": \"bruce.wayne@jla.com\",\r\n        \"createdDate\": \"30 Mar 1939\"\r\n    },\r\n    {\r\n        \"id\": \"2\",\r\n        \"username\": \"Clark Kent\",\r\n        \"password\": \"Superman\",\r\n        \"firstName\": \"Clark\",\r\n        \"lastName\": \"Kent\",\r\n        \"email\": \"clark.kent@jla.com\",\r\n        \"createdDate\": \"18 Apr 1938\"\r\n    },\r\n    {\r\n        \"id\": \"3\",\r\n        \"username\": \"Diana Prince\",\r\n        \"password\": \"Wonder Woman\",\r\n        \"firstName\": \"Diana\",\r\n        \"lastName\": \"Prince\",\r\n        \"email\": \"diana.prince@jla.com\",\r\n        \"createdDate\": \"25 Oct 1940\"\r\n    }\r\n]",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://localhost:8080/user/create",
+					"raw": "http://localhost:8080/user/all",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -149,7 +195,7 @@
 					"port": "8080",
 					"path": [
 						"user",
-						"create"
+						"all"
 					]
 				}
 			},

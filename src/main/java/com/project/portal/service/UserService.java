@@ -6,6 +6,8 @@ import com.project.portal.model.User;
 
 public interface UserService {
 
+	long count();
+
 	List<User> findAllUsers();
 	
 	User findById(Long id);
@@ -15,4 +17,6 @@ public interface UserService {
 	String deleteById(Long id);
 
 	String createUsers(List<User> users);
+
+	String deleteAllUsers();
 }

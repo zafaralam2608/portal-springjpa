@@ -1,6 +1,5 @@
 package com.project.portal.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +14,10 @@ public class DefaultUserService implements UserService {
 
 	@Autowired
 	UserRepository userRepository;
+
+	public long count() {
+		return userRepository.count();
+	}
 
 	public List<User> findAllUsers() {
 		return userRepository.findAll();
@@ -37,5 +40,10 @@ public class DefaultUserService implements UserService {
 	public String deleteById(Long id) {
 		userRepository.deleteById(id);
 		return "User deleted" ;
+	}
+
+	public String deleteAllUsers() {
+		userRepository.deleteAll();
+		return "Users deleted" ;
 	}
 }
