@@ -1,6 +1,7 @@
 package com.project.portal.rest.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.project.portal.rest.dto.UserDto;
 import org.modelmapper.ModelMapper;
@@ -32,8 +33,9 @@ public class UserController{
 	}
 
 	@GetMapping("/all")
-	public List<User> getUsers() {
-		return userService.findAllUsers();
+	public List<UserDto> getUsers() {
+		List<User> users = userService.findAllUsers();
+		return convertDaosToDtos(users);
 	}
 
 	@GetMapping("/{id}")
@@ -49,7 +51,8 @@ public class UserController{
 	}
 
 	@PostMapping("/createMultiple")
-	public String createUsers(@RequestBody List<User> users) {
+	public String createUsers(@RequestBody List<UserDto> dtos) {
+		List<User> users = convertDtosToDaos(dtos);
 		return userService.createUsers(users);
 	}
 	
@@ -63,11 +66,19 @@ public class UserController{
 		return userService.deleteAllUsers();
 	}
 
-	protected UserDto convertDaoToDto(User dao) {
+	private UserDto convertDaoToDto(User dao) {
 		return modelMapper.map(dao, UserDto.class);
 	}
 
-	protected User convertDtoToDao(UserDto dto) {
+	private User convertDtoToDao(UserDto dto) {
 		return modelMapper.map(dto, User.class);
+	}
+
+	private List<UserDto> convertDaosToDtos(List<User> daos) {
+		return daos.stream().map(this::convertDaoToDto).collect(Collectors.toList());
+	}
+
+	private List<User> convertDtosToDaos(List<UserDto> dtos) {
+		return dtos.stream().map(this::convertDtoToDao).collect(Collectors.toList());
 	}
 }
